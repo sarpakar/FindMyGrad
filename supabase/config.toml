@@ -1,1 +1,7 @@
 project_id = "mrijxnaslflyymrjzrbm"
+
+[functions.search-programs]
+verify_jwt = false
+
+[functions.generate-summary]
+verify_jwt = false
