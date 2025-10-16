@@ -14,7 +14,116 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      programs: {
+        Row: {
+          ai_summary: string | null
+          country: string | null
+          created_at: string | null
+          degree_type: string | null
+          description: string | null
+          id: string
+          name: string
+          professors: string[] | null
+          ranking: number | null
+          research_areas: string[] | null
+          source_links: string[] | null
+          tags: string[] | null
+          tuition_range: string | null
+          university: string
+          updated_at: string | null
+        }
+        Insert: {
+          ai_summary?: string | null
+          country?: string | null
+          created_at?: string | null
+          degree_type?: string | null
+          description?: string | null
+          id?: string
+          name: string
+          professors?: string[] | null
+          ranking?: number | null
+          research_areas?: string[] | null
+          source_links?: string[] | null
+          tags?: string[] | null
+          tuition_range?: string | null
+          university: string
+          updated_at?: string | null
+        }
+        Update: {
+          ai_summary?: string | null
+          country?: string | null
+          created_at?: string | null
+          degree_type?: string | null
+          description?: string | null
+          id?: string
+          name?: string
+          professors?: string[] | null
+          ranking?: number | null
+          research_areas?: string[] | null
+          source_links?: string[] | null
+          tags?: string[] | null
+          tuition_range?: string | null
+          university?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      saved_programs: {
+        Row: {
+          created_at: string | null
+          id: string
+          notes: string | null
+          program_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          program_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          program_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_programs_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
